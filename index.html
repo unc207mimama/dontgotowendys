@@ -2,32 +2,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hungry</title>
+	<title>Don't Go To Wendy's!</title>
+	<!--bootstrap-->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!--typography-->
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Pacifico" rel="stylesheet">
+	<!--our css-->
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div class="container">
-	<div class="row">
-		<h1 class="col-sm-12 col-md-12 col-lg-12">What's for Dinner Tonight?</h1>
-			<form>
-			<div class="form-group col-sm-12 col-md-8 col-lg-8 ">
-				<label>Do you have any ingredients?</label>
-				<textarea class="form-control" rows="3" id="textArea" placeholder="Enter what you have here"></textarea>
-				<label>Do you have restrictions?</label>
-				<button class="btn-default">Nope!</button> 
-				<button class="btn-default">No meat please!</button>
-				 <button class="btn-default">Vegan all the way </button>
-				 <button class="btn-default"> Gluten-free Please</button>
-				 <button class="btn-submit" type="submit">Submit</button>
+		<div class="Jumbotron"> <!--title div-->
+			<h1>Don't go to Wendy's</h1>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<h2 class="col-sm-6 col-md-6 col-lg-6">What's for Dinner Tonight?</h2>
+				<form>
+					<div class="form-group col-sm-6 col-md-4 col-lg-4 ">
+						<label class="subtitle">Do you have any ingredients?</label>
+						<textarea class="form-control col-sm-6 col-md-6 col-lg-6" rows="3" id="textArea" placeholder="Enter what you have here"></textarea>
+						
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+  							<li>
+  								<a href="#">Nope!</a>
+  							</li>
+  							<li>		
+  								<a href="#">No meat please!</a>
+  							</li>
+  							<li>
+  								<a href="#">Vegan all the way!</a>
+  							</li>
+  							<li>
+  								<a href="#">Gluten-free please!</a>
+  							</li>
+						</ul>
+				
+				 		<button class="btn-submit" type="submit">Submit</button>
+					</div>
+
+					<div>
+						
+					</div>
+				</form>
 			</div>
 
-			<div>
-				<p>Don't go to Wendy's!  Eat Better</p>
-			</div>
-			</form>
-	</div>
-
-</div>
+		</div>
 
 </body>
 </html>
