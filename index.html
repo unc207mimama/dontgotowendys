@@ -11,22 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-<div class="container">
-	<div class="row">
-		<h1 class="col-sm-12 col-md-12 col-lg-12">What's for Dinner Tonight?</h1>
-			<form>
-			<div class="form-group col-sm-12 col-md-8 col-lg-8 ">
-				<label>Do you have any ingredients?</label>
-				<textarea class="form-control" rows="3" id="textArea" placeholder="Enter what you have here"></textarea>
-				<label>Do you have restrictions?</label>
-				<button class="btn-default">Nope!</button> 
-				<button class="btn-default">No meat please!</button>
-				 <button class="btn-default">Vegan all the way </button>
-				 <button class="btn-default"> Gluten-free Please</button>
-				 <button class="btn-submit" id="submit" type="submit">Submit</button>
-			</div>
-
 		<div class="Jumbotron"> <!--title div-->
 			<h1>Don't go to Wendy's</h1>
 		</div>
@@ -34,45 +18,35 @@
 		<div class="container">
 			<div class="row">
 				<h2 class="col-sm-6 col-md-6 col-lg-6">What's for Dinner Tonight?</h2>
-				<form>
 					<div class="form-group col-sm-6 col-md-4 col-lg-4 ">
-						<label class="subtitle">Do you have any ingredients?</label>
+						<form>
+						<label id="subtitle">Do you have any ingredients?</label>
 						<textarea class="form-control col-sm-6 col-md-6 col-lg-6" rows="3" id="textArea" placeholder="Enter what you have here"></textarea>
-						
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
-  							<li>
-  								<a href="#">Nope!</a>
-  							</li>
-  							<li>		
-  								<a href="#">No meat please!</a>
-  							</li>
-  							<li>
-  								<a href="#">Vegan all the way!</a>
-  							</li>
-  							<li>
-  								<a href="#">Gluten-free please!</a>
-  							</li>
-						</ul>
+					</form>
+				</div>
+				<div class="dropdown">
+  					<button class="btn btn-default dropdown-toggle" id="dropdown-Menu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">				Dropdown Example
+  						<span class="caret"></span>
+  					</button>
+  					<ul class="dropdown-menu" aria-labelledby="dropdown-Menu1">
+    						<li><a href="#">I eat it all</a></li>
+    						<li><a href="#">No meat please</a></li>
+    						<li><a href="#">Vegan all the way</a></li>
+    						<li><a href="#">Gluten- free please</a></li>
+  					</ul>
+				</div>
 				
 				 		<button class="btn-submit" type="submit">Submit</button>
+
+				 		<br>
+
+				 		<div id="recipes">
+				 			
+				 		</div>
 					</div>
+				</div>
 
-				</form>
 			</div>
-
-			</form>
-		</div>
-	</div>
-
-<div id="recipes-here"></div>
-
-	
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
-
-
-	
-
 
 </body>
 </html>
