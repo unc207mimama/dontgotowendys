@@ -11,21 +11,25 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-		<div class="Jumbotron"> <!--title div-->
-			<h1>Don't go to Wendy's</h1>
-		</div>
+	<div class="Jumbotron"> 
+		<h1>Don't go to Wendy's</h1>
+	</div>
 
 		<div class="container">
 			<div class="row">
 				<h2 class="col-sm-6 col-md-6 col-lg-6">What's for Dinner Tonight?</h2>
 					<div class="form-group col-sm-6 col-md-4 col-lg-4 ">
 						<form>
-						<label id="subtitle">Do you have any ingredients?</label>
-						<textarea class="form-control col-sm-6 col-md-6 col-lg-6" rows="3" id="textArea" placeholder="Enter what you have here"></textarea>
+							<label id="subtitle">Do you have any ingredients?</label>
+								<textarea rows="3" id="textArea" placeholder="Enter what you have here">
+						</textarea>
 					</form>
 				</div>
+				
 				<div class="dropdown">
-  					<button class="btn btn-default dropdown-toggle" id="dropdown-Menu1" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">				Dropdown Example
+  					<button class="btn btn-default dropdown-toggle" id="dropdown-Menu1" 
+  					type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">			
+  					Dropdown Example
   						<span class="caret"></span>
   					</button>
   					<ul class="dropdown-menu" aria-labelledby="dropdown-Menu1">
@@ -36,17 +40,15 @@
   					</ul>
 				</div>
 				
-				 		<button class="btn-submit" type="submit">Submit</button>
-
+				 		<button class="btn-submit" type="submit" id="submit">Submit</button>
 				 		<br>
-
 				 		<div id="recipes">
-				 			
 				 		</div>
 					</div>
 				</div>
-
-			</div>
+		</html>
 
 </body>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </html>

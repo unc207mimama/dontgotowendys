@@ -5,11 +5,18 @@ $("#submit").click(function() {
     event.preventDefault();
        
 
-		// var ingredients = $("#textArea").val().trim();
-		// console.log(ingredients);
+		var ingredients = $("#textArea").val().trim();
+		console.log(ingredients);
 
-        var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=carrots%2Conion%2Ckale&limitLicense=false&number=5&ranking=1';
+    var HexIngredients = ingredients.replace(/, /gi, "%2C");
+    console.log(HexIngredients);
 
+       
+        var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + HexIngredients + '&limitLicense=false&number=5&ranking=1';
+
+
+      //Query for recipes:
+      // var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/618388/analyzedInstructions?stepBreakdown=true';
  
        
         $.ajax({
@@ -21,11 +28,10 @@ $("#submit").click(function() {
    		  }
 
         }).done(function(response) {
-        	// var title = response.results[i].title;
-         //  $("#recipes-here").html(title);
           console.log(response);
         });
 
     });
 
-// capture input from site make variables, put those in a queryURL.
+// Display images and titles to html
+// click event for the images and titles to do a api call to get the recipes
