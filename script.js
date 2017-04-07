@@ -29,6 +29,11 @@ $("#submit").click(function() {
 
         }).done(function(response) {
           console.log(response);
+          for (var i = 0; i < response.length; i++) {
+            console.log(response[i].title);
+            $("#recipes").append("<p>" + response[i].title + "</p>");
+          }
+          
         });
 
     });
