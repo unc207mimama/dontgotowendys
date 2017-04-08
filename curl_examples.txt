@@ -1,0 +1,31 @@
+curl -X POST --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/classify' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  --data-binary '{"title":"Kroger Vitamin A & D Reduced Fat 2% Milk","upc":"","plu_code":""}'
+
+
+  curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=apples%2Cflour%2Csugar&limitLicense=false&number=5&ranking=1' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+  curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/ingredients/autocomplete?metaInformation=false&number=10&query=appl' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+
+  // *** don't use this one summarize recipe
+  curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/4632/summary' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+  curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/618388/summary' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+  // ****  Use this one get analyzed recipe instructions
+
+  curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/618388/analyzedInstructions?stepBreakdown=true' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
