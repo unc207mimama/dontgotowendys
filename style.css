@@ -1,10 +1,9 @@
 body{
 	/*background image*/
-	background-image: url("images/fresh-food.jpg");
-	background-repeat: no-repeat;
-	background-size: 100%;
-	vertical-align :center;
-	color
+	// background-image: url("images/fresh-food.jpg");
+	// background-repeat: no-repeat;
+	// background-size: 100%;
+	// vertical-align :center;
 	}
 
 
@@ -24,6 +23,10 @@ h2 {
 	font-size: 30px;
 	-webkit-text-stroke:1px black;
 
+p {
+	color: white;
+}
+
 .subtitle {
 		color:white;
 		font-family: 'Nunito Sans', sans-serif; 
@@ -36,4 +39,9 @@ h2 {
 	padding-top: 1px;
 	border: solid #218C8D;
 
+}
+
+img {
+	max-height: 300px;
+	max-width: 300px;
 }
