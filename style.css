@@ -22,17 +22,16 @@ h2 {
 	color:white;
 	font-size: 30px;
 	-webkit-text-stroke:1px black;
-
-p {
-	color: white;
 }
 
-.subtitle {
+
+
+#subtitle {
 		color:white;
 		font-family: 'Nunito Sans', sans-serif; 
 }	
 
-}
+
 .Jumbotron{
 	text-align: center;
 	background-color: #EF7126;
