@@ -12,44 +12,51 @@
 </head>
 <body>
 	<div class="Jumbotron"> 
-		<h1>Don't go to Wendy's</h1>
+		<h1>What Are We Doing Tonight?</h1>
 	</div>
-
 		<div class="container">
 			<div class="row">
-				<h2 class="col-sm-6 col-md-6 col-lg-6">What's for Dinner Tonight?</h2>
-					<div class="form-group col-sm-6 col-md-4 col-lg-4 ">
-						<form>
-							<label id="subtitle">Do you have any ingredients?</label>
-								<textarea rows="3" id="textArea" placeholder="Enter what you have here">
-						</textarea>
-					</form>
-				</div>
-				<div class="dropdown">
-  					<button class="btn btn-default dropdown-toggle" id="dropdown-Menu1" 
-  					type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">			
-  					Dropdown Example
-  						<span class="caret"></span>
-  					</button>
-  					<ul class="dropdown-menu" aria-labelledby="dropdown-Menu1">
-    						<li><a href="#">I eat it all</a></li>
-    						<li><a href="#">No meat please</a></li>
-    						<li><a href="#">Vegan all the way</a></li>
-    						<li><a href="#">Gluten- free please</a></li>
-  					</ul>
-				</div>
-				
-				 		<button class="btn-submit" type="submit" id="submit">Submit</button>
-				 		<br>
-				 		
-				 	</div>
-				 </div>
-				<div class="col-md-12 text-center" id="recipes">
-				 		</div>
-				
-		</html>
+				<div class="col-sm-12 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+			
+					<h2>What's for Dinner Tonight?</h2>
+						<h4 class="subtitle">Do you have any ingredients?</h4>
+							<textarea rows="3" id="textArea" placeholder="carrots, celery, chicken">
+							</textarea>
+							</div>
+							</div>
+							<div class="row">
+							<!-- buttons for selecting diet choices -->
+						<ul class="col-md-offset-2 col-md-5">
+							<li><button class="btn btn-default choices" id="veggie" data-type="vegetarian">Vegetarian</button></li>
+							<li><button class="btn btn-default choices" id="veeg" data-type="vegan">Vegan</button></li>
+							<li><button class="btn btn-default choices" id="gluten" data-type="gluten">Gluten-Free</button></li>
+							<li><button class="btn btn-success" type="submit" id="submit">Submit</button></li>
+						</ul>
+			 	</div>	
+<!-- div to attach recipes to -->
+	 <div class="col-md-12 text-center" id="recipes"></div>
 
-</body>
+		<div class="row">
+			<div class="col-sm-12 col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2">
+				<h2>What Movie to Watch Tonight?</h2>
+					<h4 class="subtitle">Enter an actor:</h4>
+						<textarea rows="3" id="actorZone" placeholder="Arnold Schwarzenneger">
+						</textarea>
+					</div>
+					<!-- UL of type of Movie buttons - not active yet -->
+							<ul class="col-md-offset-2 col-md-5">
+							<li><button class="btn btn-default" id="comedy" data-type="comedy">Comedy</button></li>
+							<li><button class="btn btn-default" id="drama" data-type="drama">Drama</button></li>
+							<li><button class="btn btn-default" id="action" data-type="action">Action</button></li>
+						<li><button class="btn btn-success" type="submit" id="submit-movie">Submit</button></li>
+						</ul>
+			</div>
+
+			<div class="col-md-12 text-center" id="movies"></div>
+		</div>
+	
+	
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
+</body>
 </html>

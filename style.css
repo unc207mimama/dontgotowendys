@@ -4,8 +4,9 @@ body{
 	// background-repeat: no-repeat;
 	// background-size: 100%;
 	// vertical-align :center;
-	}
+	background:#B9E0E2;
 
+	}
 
 h1 {
 		/*title typography*/
@@ -26,8 +27,8 @@ h2 {
 
 
 
-#subtitle {
-		color:white;
+.subtitle {
+		color:black;
 		font-family: 'Nunito Sans', sans-serif; 
 }	
 
@@ -43,4 +44,32 @@ h2 {
 img {
 	max-height: 300px;
 	max-width: 300px;
+	margin: 5px;
 }
+
+
+textarea {
+	width: 360px;
+	margin: 2px;
+}
+
+
+li{
+	display: inline;
+}
+
+button{
+	margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

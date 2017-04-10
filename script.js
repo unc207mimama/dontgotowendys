@@ -1,4 +1,10 @@
 
+// on click function for the diet choices buttons, addClass active makes them continue to look "pressed"
+// this is for the query that uses the diet choices - NOT WORKING.
+$(".choices").click(function(){
+  $(this).addClass('active');
+
+});
 
 // Submit Function for Ingredient list
 
@@ -12,8 +18,23 @@ $("#submit").click(function() {
     var HexIngredients = ingredients.replace(/, /gi, "%2C");
     console.log(HexIngredients);
 
-       // query for the ingredients
-        var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + HexIngredients + '&limitLicense=false&number=5&ranking=1';
+    // selecting the diet choices (the query is not working)
+    var veggieChoice = $(".active#veggie").attr("data-type");
+    console.log(veggieChoice);
+
+    var veegChoice = $(".active#veeg").attr("data-type");
+    console.log(veegChoice);
+
+    var glutenFree =$(".active#gluten").attr("data-type");
+    console.log(glutenFree);
+
+    // query for the ingredients
+     var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + HexIngredients + '&limitLicense=false&number=5&ranking=1&diet=' + veggieChoice + '&intolerances='+ glutenFree;
+
+      // query tries for using the diet choices (NOT WORKING)
+      // var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?diet=' +veggieChoice+ '&includeIngredients=' + HexIngredients+ '&instructionsRequired=false&intolerances='+ gluten +'&limitLicense=false&number=5&offset=0&type=main+course';
+
+      // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&fillIngredients=false&includeIngredients" +HexIngredients+ "&instructionsRequired=false&intolerances=" +glutenFree+ "&diet=" +veggieChoice + "&limitLicense=false&number=5&offset=0&ranking=1&type=main+course" 
 
         $.ajax({
           url: queryURL,
@@ -56,13 +77,45 @@ $("#submit").click(function() {
          });
  });
 
-// NEXT, 
-// add buttons for diets and intolerances, maybe make the query only for dinner or lunch. 
-// no drinks or desserts
 
-// check with others to see how the netflix page is going
-// fix input field, make larger, better, tell user a comma seperated string.
-// what were nicks ideas about using firebase? Oh yea - ratings, recently searched, viewed by. 
+// NETFLIX: 
+
+// submit movie function
+$("#submit-movie").click(function() {
+
+// retrieving the value of the actor input, creating a variable for the query
+  var actors = $("#actorZone").val().trim();
+  var actorsQuery = actors.replace(" " , "+");
+  console.log(actorsQuery);
+  
+  // netflix roulette query for an actor 
+  var queryURL = "https://community-netflix-roulette.p.mashape.com/api.php?actor=" +actorsQuery;
+                  
+  
+   $.ajax({
+          url: queryURL,
+          method: "GET",
+          headers: {
+            'X-Mashape-Key': 'N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE',
+        'Accept': 'application/json'
+        }
+
+    // done function for the response array 
+    }).done(function(response) {
+          console.log(response);
+      // for loop that goes through the response array 
+          for (var i = 0; i < response.length; i++) {
+
+            console.log(response[i].title);
+            // creating an img for the movie poster and prepending that to the movie div
+            var moviePoster = $("<img>");
+            var movieUrl = response[i].poster;
+            moviePoster.attr("src", movieUrl);
+
+            $("#movies").prepend(moviePoster);
+      }   
+  });
+});
 
 
 
