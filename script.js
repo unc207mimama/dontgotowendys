@@ -1,4 +1,5 @@
 
+// 
 
 var recipeTitle ="";
 // Configure and Initialize Firebase Database :
@@ -26,7 +27,7 @@ $(".choices").click(function(){
 
 });
 
-// Submit Function for Ingredient list
+// Submit Function for Ingredient list ================================================================
 
 $("#submit").click(function() {
     event.preventDefault();
@@ -89,25 +90,21 @@ $("#submit").click(function() {
             
             var recipeLink = $("<a>");
             $(recipeLink).attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
+            $(recipeLink).attr("target", "blank");
             $(recipeLink).append(foodImage);
-            // recipeLink.attr("target", "blank");
-            // recipeLink.attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
-
-            //*******GET HELP********
-            // $(foodImage).wrap("<a href='https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID + "'></a>");
-
-             // prints the image title, and recipe link to page:
-            //$("#recipes").prepend(recipeLink);
+            
             $("#recipes").prepend(recipeLink);
+            $("#recipes").prepend("<p> "+ "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
+            $("#recipes").prepend("<p class = 'paragraph'>" +response[i].title + "</p>");
            
            }
          });
  });
 
-  // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database
+ 
 
 
-// making reviews for each recipe, pushing to a firebase database
+// making reviews for each recipe, pushing to a firebase database (not working) =======================================
 
 $("#recipes").on("click", ".comment", function(){
               var comment = $(".review").val();
@@ -119,22 +116,23 @@ $("#recipes").on("click", ".comment", function(){
               title: recipeTitle,
               review: comment
               });   
+
+   // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database           
   database.ref().on("child_added", function(childSnapshot){
   var review = childSnapshot.val().review;
+  var title = childSnapshot.val().title;
+
   console.log(review);
   
-  $("<div>").attr("id", "reactions");
-  
-  $("#recipes").prepend("#reactions");
-  $("#reactions").prepend(review);  
-
-   // could make something in the html that shows like, live reactions to the recipes
-
+  $("#recipes").prepend(title + " " +review + "<br>");
+ 
+    });
 });
 
-});
 
-// NETFLIX: 
+
+
+// NETFLIX==============================================================
 
 // submit movie function
 $("#submit-movie").click(function() {
