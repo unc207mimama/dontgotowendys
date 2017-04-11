@@ -90,16 +90,12 @@ $("#submit").click(function() {
             
             var recipeLink = $("<a>");
             $(recipeLink).attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
+            $(recipeLink).attr("target", "blank");
             $(recipeLink).append(foodImage);
-            // recipeLink.attr("target", "blank");
-            // recipeLink.attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
-
-            //*******GET HELP********
-            // $(foodImage).wrap("<a href='https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID + "'></a>");
-
-             // prints the image title, and recipe link to page:
-            //$("#recipes").prepend(recipeLink);
+            
             $("#recipes").prepend(recipeLink);
+            $("#recipes").prepend("<p> "+ "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
+            $("#recipes").prepend("<p class = 'paragraph'>" +response[i].title + "</p>");
            
            }
          });
@@ -128,12 +124,8 @@ $("#recipes").on("click", ".comment", function(){
 
   console.log(review);
   
-  $("#recipes").prepend(title + " " +review);
-  // $("<div>").attr("id", "reactions");
-  // $("#recipes").prepend("#reactions");
-  // $("#reactions").html(childSnapshot(val()));  
-
-   // could make something in the html that shows like, live reactions to the recipes
+  $("#recipes").prepend(title + " " +review + "<br>");
+ 
     });
 });
 
