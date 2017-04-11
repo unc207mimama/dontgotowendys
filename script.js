@@ -1,4 +1,5 @@
 
+// 
 
 var recipeTitle ="";
 // Configure and Initialize Firebase Database :
@@ -26,7 +27,7 @@ $(".choices").click(function(){
 
 });
 
-// Submit Function for Ingredient list
+// Submit Function for Ingredient list ================================================================
 
 $("#submit").click(function() {
     event.preventDefault();
@@ -99,10 +100,10 @@ $("#submit").click(function() {
          });
  });
 
-  // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database
+ 
 
 
-// making reviews for each recipe, pushing to a firebase database
+// making reviews for each recipe, pushing to a firebase database (not working) =======================================
 
 $("#recipes").on("click", ".comment", function(){
               var comment = $(".review").val();
@@ -114,22 +115,27 @@ $("#recipes").on("click", ".comment", function(){
               title: recipeTitle,
               review: comment
               });   
+
+   // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database           
   database.ref().on("child_added", function(childSnapshot){
   var review = childSnapshot.val().review;
+  var title = childSnapshot.val().title;
+
   console.log(review);
   
-  $("<div>").attr("id", "reactions");
-  
-  $("#recipes").prepend("#reactions");
-  $("#reactions").prepend(review);  
+  $("#recipes").prepend(title + " " +review);
+  // $("<div>").attr("id", "reactions");
+  // $("#recipes").prepend("#reactions");
+  // $("#reactions").html(childSnapshot(val()));  
 
    // could make something in the html that shows like, live reactions to the recipes
-
+    });
 });
 
-});
 
-// NETFLIX: 
+
+
+// NETFLIX==============================================================
 
 // submit movie function
 $("#submit-movie").click(function() {
