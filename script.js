@@ -1,4 +1,24 @@
 
+
+var recipeTitle ="";
+// Configure and Initialize Firebase Database :
+
+  var config = {
+    apiKey: "AIzaSyDJ60Tn4emnSJO004fnIpuqkeNG9fxuENE",
+    authDomain: "group-project-fa72e.firebaseapp.com",
+    databaseURL: "https://group-project-fa72e.firebaseio.com",
+    projectId: "group-project-fa72e",
+    storageBucket: "group-project-fa72e.appspot.com",
+    messagingSenderId: "193456247309"
+  };
+  firebase.initializeApp(config);
+
+// Database
+var database = firebase.database();
+
+
+
+
 // on click function for the diet choices buttons, addClass active makes them continue to look "pressed"
 // this is for the query that uses the diet choices - NOT WORKING.
 $(".choices").click(function(){
@@ -32,6 +52,7 @@ $("#submit").click(function() {
      var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + HexIngredients + '&limitLicense=false&number=5&ranking=1&diet=' + veggieChoice + '&intolerances='+ glutenFree;
 
       // query tries for using the diet choices (NOT WORKING)
+
       // var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?diet=' +veggieChoice+ '&includeIngredients=' + HexIngredients+ '&instructionsRequired=false&intolerances='+ gluten +'&limitLicense=false&number=5&offset=0&type=main+course';
 
       // var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&fillIngredients=false&includeIngredients" +HexIngredients+ "&instructionsRequired=false&intolerances=" +glutenFree+ "&diet=" +veggieChoice + "&limitLicense=false&number=5&offset=0&ranking=1&type=main+course" 
@@ -62,7 +83,7 @@ $("#submit").click(function() {
             // creates the recipe Link:
             var recipeID = $(foodImage).attr("data-number");
             console.log(recipeID);
-            var recipeTitle = $(foodImage).attr("data-title");
+            recipeTitle = $(foodImage).attr("data-title");
             console.log(recipeTitle);
             var urlRecipeTitle = recipeTitle.replace(" ", "_");
             var recipeLink = $("<a> Recipe Here </a>");
@@ -71,12 +92,42 @@ $("#submit").click(function() {
              // prints the image title, and recipe link to page:
             $("#recipes").prepend(recipeLink);
             $("#recipes").prepend(foodImage);
-            $("#recipes").prepend("<p class ='paragraph'>"+ response[i].title + "</p>");
+            $("#recipes").prepend("<p class ='paragraph'>"+ response[i].title + "</p>" + "<p> "+ "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
+
 
            }
          });
  });
 
+  // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database
+
+
+// making reviews for each recipe, pushing to a firebase database
+
+$("#recipes").on("click", ".comment", function(){
+              var comment = $(".review").val();
+              console.log(comment);
+
+            // Firebase values
+             // push the title of recipes to firebase, 
+             database.ref().push({
+              title: recipeTitle,
+              review: comment
+              });   
+  database.ref().on("child_added", function(childSnapshot){
+  var review = childSnapshot.val().review;
+  console.log(review);
+  
+  $("<div>").attr("id", "reactions");
+  
+  $("#recipes").prepend("#reactions");
+  $("#reactions").prepend(review);  
+
+   // could make something in the html that shows like, live reactions to the recipes
+
+});
+
+});
 
 // NETFLIX: 
 
