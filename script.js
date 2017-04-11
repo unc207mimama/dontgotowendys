@@ -86,15 +86,20 @@ $("#submit").click(function() {
             recipeTitle = $(foodImage).attr("data-title");
             console.log(recipeTitle);
             var urlRecipeTitle = recipeTitle.replace(" ", "_");
-            var recipeLink = $("<a> Recipe Here </a>");
-            recipeLink.attr("target", "blank");
-            recipeLink.attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
+            
+            var recipeLink = $("<a>");
+            $(recipeLink).attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
+            $(recipeLink).append(foodImage);
+            // recipeLink.attr("target", "blank");
+            // recipeLink.attr("href", "https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID);
+
+            //*******GET HELP********
+            // $(foodImage).wrap("<a href='https://spoonacular.com/recipes/" + urlRecipeTitle + "-" + recipeID + "'></a>");
+
              // prints the image title, and recipe link to page:
+            //$("#recipes").prepend(recipeLink);
             $("#recipes").prepend(recipeLink);
-            $("#recipes").prepend(foodImage);
-            $("#recipes").prepend("<p class ='paragraph'>"+ response[i].title + "</p>" + "<p> "+ "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
-
-
+           
            }
          });
  });
