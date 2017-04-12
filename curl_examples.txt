@@ -1,3 +1,57 @@
+
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&instructionsRequired=false&intolerances=egg%2C+gluten&limitLicense=false&number=10&offset=0&query=burger&type=main+course' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+
+
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&fillIngredients=false&includeIngredients=carrots&instructionsRequired=false&intolerances=gluten&limitLicense=false&number=5&offset=0&ranking=1&type=main+course'   -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE'   -H 'Accept: application/json'
+
+
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=false&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=false&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+
+//kinda working complex search but with requirements not listed... results return but don't show on page
+     var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&includeIngredients=' + HexIngredients + '&instructionsRequired=false&limitLicense=false&number=5&ranking=1'//&diet=' + veggieChoice + '&intolerances='+ glutenFree;
+
+
+var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?addRecipeInformation=false&includeIngredients=' + HexIngredients + '&instructionsRequired=false&limitLicense=false&number=5&ranking=1'//&diet=' + veggieChoice + '&intolerances='+ glutenFree;
+
+
+
+// current command
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&includeIngredients=carrots&instructionsRequired=false&intolerances=gluten&number=5&type=main+course'   -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE'   -H 'Accept: application/json'
+
+
+// short command
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&includeIngredients=carrots&instructionsRequired=false&intolerances=gluten&number=5&type=main+course'   -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE'   -H 'Accept: application/json'
+
+'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + HexIngredients + '&limitLicense=false&number=5&ranking=1&diet=' + veggieChoice + '&intolerances='+ glutenFree;
+
+
+
+
+
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&fillIngredients=false&includeIngredients=carrots&instructionsRequired=false&intolerances=gluten&limitLicense=false&number=5&offset=0&ranking=1&type=main+course' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+
+
+
+
+
+curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=false&cuisine=american&diet=vegetarian&fillIngredients=false&includeIngredients=carrots&instructionsRequired=false&limitLicense=false&maxCalories=1500&number=<required>&offset=0&query=<required>&ranking=1&type=main+course' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+
 curl -X POST --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/classify' \
   -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
   -H 'Content-Type: application/json' \
@@ -29,3 +83,29 @@ curl -X POST --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.c
   curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/618388/analyzedInstructions?stepBreakdown=true' \
   -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
   -H 'Accept: application/json'
+
+  str.replace(/,/gi, "%2C");
+
+  curl --get --include 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&instructionsRequired=false&intolerances=egg%2C+gluten&limitLicense=false&number=10&offset=0&query=burger&type=main+course' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+------
+
+curl --get --include 'https://community-netflix-roulette.p.mashape.com/api.php?title=The+Boondocks&year=2005' \
+  -H 'X-Mashape-Key: N6Iqu17EWCmshbX4K3FDHGcK8Zocp1Qy6mljsnMMwv92cEfZrE' \
+  -H 'Accept: application/json'
+
+
+
+These were s
+firebase
+  recently searched recipes
+  ratings
+  store information about ingredients they have
+  what information would be useful ?
+
+ Chef Watson 
+
+ Google analytics API ...
