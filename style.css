@@ -19,8 +19,8 @@ h1 {
 	}
 
 h2 {
-	font-family: 'Pacifico', cursive;
-	color:white;
+	font-family: 'Nunito Sans', sans-serif; 
+	// color:white;
 	font-size: 30px;
 	-webkit-text-stroke:1px black;
 }

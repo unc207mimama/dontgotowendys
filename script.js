@@ -1,7 +1,9 @@
 
-// 
+// Global Variables
 
 var recipeTitle ="";
+var title = "";
+var review = "";
 // Configure and Initialize Firebase Database :
 
   var config = {
@@ -117,17 +119,18 @@ $("#recipes").on("click", ".comment", function(){
               review: comment
               });   
 
-   // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database           
-  database.ref().on("child_added", function(childSnapshot){
+  
+});
+// FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database 
+ database.ref().on("child_added", function(childSnapshot){
   var review = childSnapshot.val().review;
   var title = childSnapshot.val().title;
 
   console.log(review);
+
+  $("#ppl-saying").prepend("<p>" + title + ": " +review + "</p>");
   
-  $("#recipes").prepend(title + " " +review + "<br>");
- 
     });
-});
 
 
 
@@ -166,7 +169,7 @@ $("#submit-movie").click(function() {
             var movieUrl = response[i].poster;
             moviePoster.attr("src", movieUrl);
 
-            $("#movies").prepend(moviePoster);
+            $("#recipes").prepend(moviePoster);
       }   
   });
 });
