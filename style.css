@@ -62,7 +62,11 @@ button{
 	margin-left: 10px;
 }
 
+.panel{
+	max-height: 300px;
+	overflow: scroll;
 
+}
 
 
 
