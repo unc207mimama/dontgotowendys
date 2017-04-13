@@ -14,15 +14,19 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
 	<div class="Jumbotron">
-	<h1>Dinner Tonight?</h1>
+	  <h1>Dinner Tonight?</h1>
 	</div>
-	
+	<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			
 		 <div id="dinner-form">
          
          <div id="dinner-title">
         <h2>What's for Dinner Tonight?</h2>
-        <h4 class="subtitle">Do you have any ingredients?                </h4>
+        <h4 class="subtitle">Do you have any ingredients?               </h4>
         <textarea rows="3" id="textArea" placeholder="carrots, celery, chicken"></textarea>
          </div>
          
@@ -38,7 +42,7 @@
 <!--    end of dinner form      -->
          <div>
            <div>
-        <h2>What Movie to Watch Tonight?</h2>
+        <h2>Want to Watch a movie Tonight?</h2>
         <h4 class="subtitle">Enter an actor:</h4>
         <textarea rows="3" id="actorZone" placeholder="Arnold Schwarzenneger"></textarea>
            </div>
@@ -51,20 +55,19 @@
           <li><button class="btn btn-success" type="submit" id="submit-movie">Submit</button></li>
         </ul>
       </div>
+        </div>
 
     
 
 
-      <!-- div for reviews section -->
-      <div class="col-sm-12 col-md-6 col-lg-6 display:inline;">
-        <h2>What are people saying?</h2>
-        <h4 class="subtitle">Recent Reviews</h4>
-        <div id="ppl-saying" class="panel">
-        </div>
-      </div>
-   
-
-
+ 	<!-- div for reviews section -->
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right">
+						<h2>What are people saying?</h2>
+							<h4 class="subtitle">Recent Reviews</h4>
+							<div id="ppl-saying" class="panel" >
+						</div>
+				</div>
+    </div>
    
 <!-- div to attach recipes/movies to -->
 	 <div class="col-md-12 text-center" id="recipes"></div>
