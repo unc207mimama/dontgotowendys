@@ -23,7 +23,7 @@ var database = firebase.database();
 
 
 // on click function for the diet choices buttons, addClass active makes them continue to look "pressed"
-// this is for the query that uses the diet choices - NOT WORKING.
+// this is for the query that uses the diet choices - NOT WORKING YET.
 $(".choices").click(function(){
   $(this).addClass('active');
 
@@ -36,25 +36,21 @@ $("#submit").click(function() {
        
     // making the comma seperated string the hex syntax that the api query wants:
 		var ingredients = $("#textArea").val().trim();
-		console.log(ingredients);
-
+	
     var HexIngredients = ingredients.replace(/, /gi, "%2C");
-    console.log(HexIngredients);
 
-    // selecting the diet choices (the query is not working)
+    // selecting the diet choices (the query is not working yet)
     var veggieChoice = $(".active#veggie").attr("data-type");
-    console.log(veggieChoice);
 
     var veegChoice = $(".active#veeg").attr("data-type");
-    console.log(veegChoice);
-
+    
     var glutenFree =$(".active#gluten").attr("data-type");
-    console.log(glutenFree);
+   
 
     // query for the ingredients
      var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=' + HexIngredients + '&limitLicense=false&number=5&ranking=1&diet=' + veggieChoice + '&intolerances='+ glutenFree;
 
-      // query tries for using the diet choices (NOT WORKING)
+      // query tries for using the diet choices (NOT WORKING YET)
 
       // var queryURL = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?diet=' +veggieChoice+ '&includeIngredients=' + HexIngredients+ '&instructionsRequired=false&intolerances='+ gluten +'&limitLicense=false&number=5&offset=0&type=main+course';
 
@@ -71,11 +67,9 @@ $("#submit").click(function() {
 
      // done function that retrieves the titles and images of the response. prepends them to the recipe div. 
      }).done(function(response) {
-          console.log(response);
 
           // for loop that goes through the response array 
           for (var i = 0; i < response.length; i++) {
-            console.log(response[i].title);
            // creating the foodImage and giving it the attributes of the ID # and title, 
            // for use in getting the link to the recipe site
             var foodImage = $("<img>");
@@ -85,9 +79,7 @@ $("#submit").click(function() {
             foodImage.attr("data-title", response[i].title);
             // creates the recipe Link:
             var recipeID = $(foodImage).attr("data-number");
-            console.log(recipeID);
             recipeTitle = $(foodImage).attr("data-title");
-            console.log(recipeTitle);
             var urlRecipeTitle = recipeTitle.replace(" ", "_");
             
             var recipeLink = $("<a>");
@@ -96,43 +88,39 @@ $("#submit").click(function() {
             $(recipeLink).append(foodImage);
             
             $("#recipes").prepend(recipeLink);
-            $("#recipes").prepend("<p> "+ "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
-            $("#recipes").prepend("<p class = 'paragraph'>" +response[i].title + "</p>");
+            $("#recipes").prepend( "<p> <span class = 'paragraph'>" +response[i].title +  "</span><br>" + "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
+            
            
-           }
-         });
+           
+         }
+ });
  });
 
- 
-
-
-// making reviews for each recipe, pushing to a firebase database (not working) =======================================
+// making reviews for each recipe, pushing to a firebase database =======================================
 
 $("#recipes").on("click", ".comment", function(){
-              var comment = $(".review").val();
-              console.log(comment);
-
+  // jquery use parent elements or data attributes - look at to do list. 
+            var comment = $(this).siblings(".review").val();
+              // make a variable for to match the title to the comment
+            var commentTitle = JSON.stringify($(this).siblings(".paragraph").text());
+            var newCommentTitle = commentTitle.replace(/"/g, " ");
             // Firebase values
              // push the title of recipes to firebase, 
              database.ref().push({
-              title: recipeTitle,
+              title: newCommentTitle,
               review: comment
               });   
 
-  
 });
 // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database 
  database.ref().on("child_added", function(childSnapshot){
   var review = childSnapshot.val().review;
   var title = childSnapshot.val().title;
 
-  console.log(review);
-
-  $("#ppl-saying").prepend("<p>" + title + ": " +review + "</p>");
+// prepends the review and title snapshots to the ppl-saying div
+  $("#ppl-saying").prepend("<p class='reviews'>" + title + ": " + '"'  +review + '"' + "</p>");
   
     });
-
-
 
 
 // NETFLIX==============================================================
@@ -143,7 +131,6 @@ $("#submit-movie").click(function() {
 // retrieving the value of the actor input, creating a variable for the query
   var actors = $("#actorZone").val().trim();
   var actorsQuery = actors.replace(" " , "+");
-  console.log(actorsQuery);
   
   // netflix roulette query for an actor 
   var queryURL = "https://community-netflix-roulette.p.mashape.com/api.php?actor=" +actorsQuery;
@@ -163,7 +150,6 @@ $("#submit-movie").click(function() {
       // for loop that goes through the response array 
           for (var i = 0; i < response.length; i++) {
 
-            console.log(response[i].title);
             // creating an img for the movie poster and prepending that to the movie div
             var moviePoster = $("<img>");
             var movieUrl = response[i].poster;

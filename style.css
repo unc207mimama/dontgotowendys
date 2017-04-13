@@ -1,4 +1,5 @@
 body{
+
 	/*background image*/
  background: -webkit-radial-gradient(#8CA6DB, #B993D6);  /* Chrome 10-25, Safari 5.1-6 */ 
 background: radial-gradient(#8CA6DB, #B993D6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -59,7 +60,7 @@ textarea {
 	width: 360px;
 	margin: 2px;
   background: #edd9c0 ;
-  box- shadow: 1px 1px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.35);
   border: solid 3px ;
   border-color: lightsteelblue;
 }
@@ -82,13 +83,11 @@ button{
 
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.35);
   border: solid 3px ;
-  border-color: lightsteelblue;
-
-}
-
+  border-color: lightsteelblue
   
-
-
+.paragraph{
+	font-family: font-family: 'Nunito Sans', sans-serif; 
+	font-size: 20px;
 
 
 
