@@ -7,64 +7,72 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!--typography-->
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Pacifico" rel="stylesheet">
+
+	 <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+  
 	<!--our css-->
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div class="Jumbotron"> 
-		<h1>What Are We Doing Tonight?</h1>
+		<h1>Dinner Tonight?</h1>
 	</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 col-lg-6">
-			
-					<h2>What's for Dinner Tonight?</h2>
-						<h4 class="subtitle">Do you have any ingredients?</h4>
-							<textarea rows="3" id="textArea" placeholder="carrots, celery, chicken"></textarea>
-						
-							<!-- buttons for selecting diet choices -->
-						<ul>
-							<li><button class="btn btn-default choices" id="veggie" data-type="vegetarian">Vegetarian</button></li>
-							<li><button class="btn btn-default choices" id="veeg" data-type="vegan">Vegan</button></li>
-							<li><button class="btn btn-default choices" id="gluten" data-type="gluten">Gluten-Free</button></li>
-							<li><button class="btn btn-success" type="submit" id="submit">Submit</button></li>
-						</ul>
-			 	
-			
-		
-				<h2>What Movie to Watch Tonight?</h2>
-					<h4 class="subtitle">Enter an actor:</h4>
-					<textarea rows="3" id="actorZone" placeholder="Arnold Schwarzenneger"></textarea>
-					
-					<!-- UL of type of Movie buttons - not active yet -->
-							<ul>
-							<li><button class="btn btn-default" id="comedy" data-type="comedy">Comedy</button></li>
-							<li><button class="btn btn-default" id="drama" data-type="drama">Drama</button></li>
-							<li><button class="btn btn-default" id="action" data-type="action">Action</button></li>
-						<li><button class="btn btn-success" type="submit" id="submit-movie">Submit</button></li>
-						</ul>
-			
-	</div>
+	
+		 <div id="dinner-form">
+         
+         <div id="dinner-title">
+        <h2>What's for Dinner Tonight?</h2>
+        <h4 class="subtitle">Do you have any ingredients?                </h4>
+        <textarea rows="3" id="textArea" placeholder="carrots, celery, chicken"></textarea>
+         </div>
+         
+       <div id="button-row"> <!-- buttons for selecting diet choices -->
+        <ul>
+          <li><button class="btn btn-default choices" id="veggie" data-type="vegetarian">Vegetarian</button></li>
+          <li><button class="btn btn-default choices" id="veeg" data-type="vegan">Vegan</button></li>
+          <li><button class="btn btn-default choices" id="gluten" data-type="gluten">Gluten-Free</button></li>
+          <li><button class="btn btn-success" type="submit" id="submit">Submit</button></li>
+        </ul>
+         </div>
+        </div> 
+<!--    end of dinner form      -->
+         <div>
+           <div>
+        <h2>What Movie to Watch Tonight?</h2>
+        <h4 class="subtitle">Enter an actor:</h4>
+        <textarea rows="3" id="actorZone" placeholder="Arnold Schwarzenneger"></textarea>
+           </div>
+         </div>
+      <div>  <!-- UL of type of Movie buttons - not active yet -->
+        <ul>
+          <li><button class="btn btn-default" id="comedy" data-type="comedy">Comedy</button></li>
+          <li><button class="btn btn-default" id="drama" data-type="drama">Drama</button></li>
+          <li><button class="btn btn-default" id="action" data-type="action">Action</button></li>
+          <li><button class="btn btn-success" type="submit" id="submit-movie">Submit</button></li>
+        </ul>
+      </div>
+
+      </div>
 
 
- 	<!-- div for reviews section -->
-					<div class="col-md-6 col-lg-6 pull-right">
-						<h2>What are people saying?</h2>
-							<h4 class="subtitle">Recent Reviews</h4>
-							<div id="ppl-saying" class="panel" >
-						</div>
-				</div>
-			</div>
+      <!-- div for reviews section -->
+      <div class="col-sm-12 col-md-6 col-lg-6 display:inline;">
+        <h2>What are people saying?</h2>
+        <h4 class="subtitle">Recent Reviews</h4>
+        <div id="ppl-saying" class="panel">
+        </div>
+      </div>
+    </div>
 
 
+    <!-- div to attach recipes/movies to -->
+    <div class="col-md-12 text-center" id="recipes"></div>
 
-<!-- div to attach recipes/movies to -->
-	 <div class="col-md-12 text-center" id="recipes"></div>
+  </div>
 
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="script.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
