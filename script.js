@@ -96,30 +96,31 @@ $("#submit").click(function() {
             $(recipeLink).append(foodImage);
             
             $("#recipes").prepend(recipeLink);
-            $("#recipes").prepend("<p> "+ "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
-            $("#recipes").prepend("<p class = 'paragraph'>" +response[i].title + "</p>");
+            $("#recipes").prepend( "<p> <span class = 'paragraph'>" +response[i].title +  "</span><br>" + "Did you make this recipe? Leave a review!" + "<input class='review'></input>" + "<button class='comment'>Submit</button>"+"</p>");
+            
            
-           }
-         });
+           
+         }
+ });
  });
 
- 
-
-
-// making reviews for each recipe, pushing to a firebase database (not working) =======================================
+// making reviews for each recipe, pushing to a firebase database =======================================
 
 $("#recipes").on("click", ".comment", function(){
-              var comment = $(".review").val();
+  // jquery use parent elements or data attributes - look at to do list. 
+              var comment = $(this).siblings(".review").val();
               console.log(comment);
-
+              // make a variable for to match the title to the comment
+              var commentTitle = JSON.stringify($(this).siblings(".paragraph").text());
+              console.log(commentTitle);
+             var newCommentTitle = commentTitle.replace(/"/g, " ");
             // Firebase values
              // push the title of recipes to firebase, 
              database.ref().push({
-              title: recipeTitle,
+              title: newCommentTitle,
               review: comment
               });   
 
-  
 });
 // FIREBASE WATCHER + INITIAL LOADER - updates or snapshot everytime a child is added to database 
  database.ref().on("child_added", function(childSnapshot){
@@ -128,11 +129,9 @@ $("#recipes").on("click", ".comment", function(){
 
   console.log(review);
 
-  $("#ppl-saying").prepend("<p>" + title + ": " +review + "</p>");
+  $("#ppl-saying").prepend("<p class='reviews'>" + title + ": " + '"'  +review + '"' + "</p>");
   
     });
-
-
 
 
 // NETFLIX==============================================================

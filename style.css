@@ -68,8 +68,15 @@ button{
 
 }
 
+.paragraph{
+	font-family: font-family: 'Nunito Sans', sans-serif; 
+	font-size: 20px;
+}
 
-
+.reviews{
+	font-family: font-family: 'Nunito Sans', sans-serif; 
+	margin-left:6px;
+}
 
 
 
